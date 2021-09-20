@@ -5,7 +5,7 @@ const postController = {
   async createPost(req, res, next) {
     const post = await Post.create({
       description: req.body.description,
-      postedBy: req.user.id,
+      postedBy: req.user.user_id,
     });
     if (!post) return res.status(401).json({ message: "Can not create post" });
     res.status(200).json(post);
