@@ -26,7 +26,7 @@ const postController = {
   },
   async findOne(req, res, next) {
     try {
-      const post = await Post.findOne(req.params.id);
+      const post = await Post.findById(req.params.id);
       res.status(200).json(post);
     } catch (e) {
       next(e);
