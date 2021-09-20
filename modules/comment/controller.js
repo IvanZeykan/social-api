@@ -3,19 +3,21 @@ const Post = require('../post/schema')
 
 const commentController = {
     async createComment(req, res, next) {
-        const post = await Post.findById(res.params.id);
+        const post = await Post.findById(req.params.id);
         if (!post) {
-            res.status(404).json(" Post not found");
+            res.status(404).json("Post not found");
         }
+        
         const comment = await Comment.create({
             text: req.body.text,
             user: req.user.user_id,
         });
+        
         if (comment) {
             post.comments.push(comment.id);
             post.save();
         }
-        console.log(post);
+       
         res.status(200).json(comment);
     },
     async updateComment(res, req, next) {
