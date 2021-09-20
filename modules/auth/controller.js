@@ -38,6 +38,8 @@ const authController = {
 
       const encryptedPassword = await bcrypt.hash(req.body.password, 10);
 
+      console.log(encryptedPassword);
+
       const result = await bcrypt.compare(req.body.password, user.password);
 
       if (!result) {
