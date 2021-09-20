@@ -17,11 +17,11 @@ router.post("/", verifyToken, createUser);
 
 router.post("/addFriend/:id", verifyToken, addFriend);
 
+router.get("/all", verifyToken, findAll);
+
 router.put("/:id", verifyToken, updateUser);
 
 router.get("/:id", verifyToken, findOne);
-
-router.get("/:all", verifyToken, findAll);
 
 router.delete("/:id", verifyToken, deleteUser);
 

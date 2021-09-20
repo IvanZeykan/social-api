@@ -7,7 +7,7 @@ const UserController = {
       const isNotValid = validateCreateUser(req.body);
       if (isNotValid) return res.status(401).json({ isNotValid });
       const user = await User.create({
-        name: req.body.name,
+        username: req.body.username,
         email: req.body.email,
         password: req.body.password,
       });
