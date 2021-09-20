@@ -9,7 +9,7 @@ const CommentSchema = new Schema({
     },
     date: {
         type: Date,
-        default: Date.now
+        default: new Date()
     },
     post: {
         type: Types.ObjectId,
@@ -21,4 +21,4 @@ const CommentSchema = new Schema({
     },
 });
 
-model.export = model("Comment", CommentSchema);
+module.exports = model("Comment", CommentSchema);
