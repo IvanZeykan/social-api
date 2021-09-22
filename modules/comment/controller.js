@@ -7,7 +7,7 @@ const commentController = {
         if (!post) {
             res.status(404).json("Post not found");
         }
-        
+    
         const comment = await Comment.create({
             text: req.body.text,
             user: req.user.user_id,
