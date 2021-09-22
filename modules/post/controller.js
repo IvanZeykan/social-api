@@ -7,7 +7,7 @@ const postController = {
       description: req.body.description,
       postedBy: req.user.user_id,
     });
-    if (!post) return res.status(401).json({ message: "Can not create post" });
+    if (!post) return res.status(401).json({ message: "Can't create post" });
     res.status(200).json(post);
   },
   async updatePost(req, res, next) {
